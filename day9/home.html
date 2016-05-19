@@ -1,0 +1,39 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <title>Grey scale drawing</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="content-container"></div>
+
+<script>
+$(document).ready(function() {
+    var allDivs = '';
+    for(var i = 0; i < 10000; i++) {
+        allDivs += '<div class="box"></div>';
+    }
+
+    $('#content-container').html(allDivs);
+
+    function randomGreyColor() {
+        var colorNumber = Math.random().toString(16).slice(2, 4);
+        return '#' + colorNumber + colorNumber + colorNumber;
+	};
+
+    $('.box').on('mouseenter', function() {
+        $(this).css('background-color', randomGreyColor());
+    })
+})
+</script>
+</body>
+</html>

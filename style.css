@@ -1,0 +1,140 @@
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#contact-container {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#header {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #F4D316;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+#info-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #3E426B;
+    border-radius: 15px;
+}
+#content {
+    background-color: #3E426B;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-radius: 15px;
+}
+#header-text {
+    color: #3E426B;
+    font-size: 55px;
+    font-family: 'Signika', sans-serif;
+}
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.day-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4D316;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-family: 'Signika', sans-serif;
+}
+.description {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    color: #3E426B;
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-family: 'Signika', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+}
+.description:hover {
+    background-color: #3E426B;
+    color: white;
+    border: 1px solid white;
+}
+.done {
+    font-style: normal;
+}
+#info-container p {
+    text-align: center;
+    font-family: 'Signika', sans-serif;
+}
+#contact-container a {
+    flex: 1;
+    border-radius: 10px;
+    height: 30px;
+    border: 2px solid #F4D316;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Signika', sans-serif;
+    text-decoration: none;
+    color: #3E426B;
+}
+#contact-container a:active {
+    color: #3E426B;
+}
+#contact-container a:visited {
+    color: #3E426B;
+}
+#contact-container a:hover {
+    background-color: #3E426B;
+    color: white;
+}
+#home {
+    margin-right: 5px;
+}
+#about {
+    margin-right: 5px;
+}
+#contact-container #about-active {
+    background-color: #3E426B;
+    color: white;
+}
+#contact {
+    margin-left: 5px;
+}
+#blog {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+a[href^="mailto:"] {
+    color: #3E426B;
+}
+#header-text a {
+    text-decoration: none;
+    color: #3E426B;
+}
+span {
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -1,0 +1,41 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+    <title>Random background colors</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="content-container">
+        <button>Click me!</button>
+    </div>
+
+<!-- <script>
+    $(document).ready(function() {
+        function randomColor() {
+    		return '#' + Math.random().toString(16).slice(2, 8);
+        };
+
+        $('body').css('background-color', randomColor());
+        $('button').css('background-color', randomColor());
+
+        $('button').on('click', function() {
+            $('body').css('background-color', randomColor());
+            $('button').css('background-color', randomColor());
+        });
+
+    })
+</script> -->
+
+</body>
+</html>

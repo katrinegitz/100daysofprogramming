@@ -1,0 +1,52 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="animate.css">
+
+    <title>Make me a news anchor!</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <h1>Teleprompter</h1>
+        <p id="please-enter">Please enter your text below, click the button, and pretend you're a news anchor!</p>
+        <textarea rows="25" cols="60" placeholder="Enter your news anchor text here ..."></textarea>
+        <button>Make me a news anchor!</button>
+    </div>
+<script>
+
+    $('button').on('click', function() {
+        var userText = $('textarea').val();
+
+        userText = userText.replace(/\n/g, '<br/>')
+
+        $('#container')
+            .html('<div id="textinput">' + userText + '</div>')
+            .css('color', 'white')
+            .css('font-size', '70px')
+            .css('font-weight', 'bold')
+            .css('text-align', 'center')
+            .css('line-height', '80px')
+            .css('font-family', 'Open Sans')
+            .css('letter-spacing', '3px')
+            .css('padding-top', '100px')
+            .css('overflow', 'hidden')
+            .find('#textinput')
+            .animate({'margin-top': '-100000px'}, 3000000, 'linear')
+            
+    })
+
+</script>
+</body>
+</html>

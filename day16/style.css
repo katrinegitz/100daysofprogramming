@@ -1,0 +1,339 @@
+/* Following styles are for every page in the 100 day project */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+}
+#header-container {
+    display: flex;
+    align-self: center;
+    height: 40px;
+    padding-top: 15px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#header-container a {
+    color: black;
+}
+#header-container div {
+    margin-right: 5px;
+}
+#header-container div:last-child {
+    margin-right: 0px;
+}
+a {
+    text-decoration: none;
+}
+/* end of the styles for all pages */
+#container {
+    width: 100%;
+    height: 620px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Droid Sans', sans-serif;
+}
+h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 37px;
+}
+#labyrinth {
+    position: relative;
+    height: 550px;
+    width: 1000px;
+    cursor: url("umbrella.png"), auto;
+}
+#labyrinth-container {
+    width: 510px;
+    height: 450px;
+    margin-top: 0;
+    position: absolute;
+    left: 245px;
+    top: 20px;
+    margin-bottom: -50px;
+}
+#start {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 175px;
+    top: 210px;
+}
+#place-mouse-here {
+    position: absolute;
+    top: 140px;
+    left: 108px;
+    text-align: center;
+}
+#arrow {
+    position: absolute;
+    background: url("arrow.png") no-repeat;
+    width: 23px;
+    height: 33px;
+    top: 200px;
+    left: 150px;
+    text-indent: -9999px;
+}
+.labyrinth {
+    position: absolute;
+    background-color: black;
+}
+#el1 {
+    width: 510px;
+    height: 30px;
+}
+#el2 {
+    width: 510px;
+    height: 30px;
+    bottom: 0;
+}
+#el3 {
+    height: 180px;
+    width: 30px;
+    top: 30px;
+    left: 0;
+}
+#el4 {
+    height: 180px;
+    width: 30px;
+    bottom: 30px;
+    left: 0;
+}
+#el5 {
+    height: 120px;
+    width: 30px;
+    right: 0;
+    top: 30px;
+}
+#el6 {
+    height: 240px;
+    width: 30px;
+    right: 0;
+    bottom: 30px;
+}
+#el7 {
+    width: 150px;
+    height: 30px;
+    right: 60px;
+    top: 60px;
+}
+#el8 {
+    width: 120px;
+    height: 30px;
+    right: 30px;
+    top: 120px;
+}
+#el9 {
+    height: 180px;
+    width: 30px;
+    top: 90px;
+    right: 180px;
+}
+#el10 {
+    width: 120px;
+    height: 30px;
+    right: 60px;
+    top: 180px;
+}
+#el11 {
+    width: 30px;
+    height: 60px;
+    right: 60px;
+    top: 210px;
+}
+#el12 {
+    width: 60px;
+    height: 30px;
+    right: 90px;
+    bottom: 180px;
+}
+#el13 {
+    width: 210px;
+    height: 30px;
+    bottom: 120px;
+    right: 60px;
+}
+#el14 {
+    width: 30px;
+    height: 60px;
+    bottom: 60px;
+    right: 60px;
+}
+#el15 {
+    width: 30px;
+    height: 90px;
+    bottom: 30px;
+    right: 120px;
+}
+#el16 {
+    width: 30px;
+    height: 60px;
+    bottom: 60px;
+    right: 240px;
+}
+#el17 {
+    width: 60px;
+    height: 30px;
+    bottom: 60px;
+    right: 180px;
+}
+#el18 {
+    width: 30px;
+    height: 180px;
+    top: 30px;
+    right: 240px;
+}
+#el19 {
+    width: 120px;
+    height: 30px;
+    right: 210px;
+    bottom: 180px;
+}
+#el20 {
+    width: 30px;
+    height: 180px;
+    top: 60px;
+    left: 180px;
+}
+#el21 {
+    width: 120px;
+    height: 30px;
+    left: 60px;
+    top: 60px;
+}
+#el22 {
+    width: 30px;
+    height: 120px;
+    top: 90px;
+    left: 60px;
+}
+#el23 {
+    width: 30px;
+    height: 30px;
+    left: 30px;
+    top: 180px;
+}
+#el24 {
+    width: 30px;
+    height: 150px;
+    top: 120px;
+    left: 120px;
+}
+#el25 {
+    width: 90px;
+    height: 30px;
+    left: 30px;
+    bottom: 180px;
+}
+#el26 {
+    width: 90px;
+    height: 30px;
+    left: 60px;
+    bottom: 120px;
+}
+#el27 {
+    width: 30px;
+    height: 60px;
+    bottom: 60px;
+    left: 60px;
+}
+#el28 {
+    width: 120px;
+    height: 30px;
+    bottom: 60px;
+    left: 90px;
+}
+#el29 {
+    width: 30px;
+    height: 30px;
+    bottom: 30px;
+    left: 180px;
+}
+#el30 {
+    width: 30px;
+    height: 60px;
+    left: 180px;
+    bottom: 120px;
+}
+#rain-container {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    top: 134px;
+    right: 95px;
+}
+#rain {
+    width: 50px;
+    height: 47px;
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    background: url("rain.png") no-repeat;
+}
+.ups {
+    font-size: 120px;
+    font-weight: bold;
+    color: #EAD721;
+    position: absolute;
+    left: 380px;
+    top: -70px;
+}
+#ups {
+    position: relative;
+    height: 550px;
+    width: 1000px;
+    cursor: auto;
+}
+#start-again {
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    top: 245px;
+    left: 375px;
+    border: none;
+    background-color: #EAD721;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+#congrats {
+    position: relative;
+    height: 550px;
+    width: 1000px;
+    cursor: auto;
+}
+#cupcake {
+    width: 239px;
+    height: 250px;
+    position: absolute;
+    background: url("cupcake.png") no-repeat;
+    left: 380px;
+    top: 130px;
+}
+#omg {
+    font-size: 30px;
+    position: absolute;
+    left: 321px;
+    color: #EAD721;
+}
+#cupcake-here {
+    font-size: 25px;
+    position: absolute;
+    left: 365px;
+    top: 58px;
+}
+#start-again2 {
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    top: 400px;
+    left: 375px;
+    border: none;
+    background-color: #EAD721;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+}

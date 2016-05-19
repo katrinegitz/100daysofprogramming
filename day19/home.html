@@ -1,0 +1,205 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Keep it straight</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <div id="container">
+<!-- Until here -->
+        <div id="start" class="content">
+            <h1>Keep it straight!</h1>
+            <p>Move your mouse in a straight line from the red side to the blue side.</p>
+            <button id="to-level-1">Let's play!</button>
+        </div>
+        <div id="level-1" class="level">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="1-done" class="content">
+            <h1>Awesome!</h1>
+            <p>That was just a warm up. Ready for the next level?</p>
+            <div class="buttons">
+                <button class="start-over-button">Start over</button>
+                <button id="to-level-2" class="next-level-button">Bring it!</button>
+            </div>
+        </div>
+        <div id="level-2" class="level">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="2-done" class="content">
+            <h1>Excellent work!</h1>
+            <p>Now that you've got the hang of it, let's take it up a notch.</p>
+            <div class="buttons">
+                <button class="start-over-button">Start over</button>
+                <button id="to-level-3" class="next-level-button">Bring it!</button>
+            </div>
+        </div>
+        <div id="level-3" class="level">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="3-done" class="content">
+            <h1>WOW!</h1>
+            <p>Let's try something a bit more challenging now.</p>
+            <div class="buttons">
+                <button class="start-over-button">Start over</button>
+                <button id="to-level-4" class="next-level-button">Bring it!</button>
+            </div>
+        </div>
+        <div id="level-4" class="level">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="4-done" class="content">
+            <h1>Damn You're Good!</h1>
+            <p>What if we remove the guide?</p>
+            <div class="buttons">
+                <button class="start-over-button">Start over</button>
+                <button id="to-level-5" class="next-level-button">Bring it!</button>
+            </div>
+        </div>
+        <div id="level-5" class="level">
+            <div class="red"></div>
+            <div class="white"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="failed" class="content">
+            <h1>FAIL!</h1>
+            <p>Well, at least you tried.</p>
+            <button class="start-over-button">Start over</button>
+        </div>
+        <div id="congrats" class="content">
+            <h1>You're Freakin' Amazing!</h1>
+            <p>Congratulations! You have completed all the levels like a pro!</p>
+            <button class="start-over-button">Start over</button>
+        </div>
+    </div>
+<script>
+
+    $('#start').show();
+    $('#level-1').hide();
+    $('#1-done').hide ();
+    $('#level-2').hide();
+    $('#2-done').hide();
+    $('#level-3').hide();
+    $('#3-done').hide();
+    $('#level-4').hide();
+    $('#4-done').hide();
+    $('#level-5').hide();
+    $('#failed').hide();
+    $('#congrats').hide();
+
+    $('.start-over-button').on('click', function() {
+        $('#start').show();
+        $('#level-1').hide();
+        $('#1-done').hide ();
+        $('#level-2').hide();
+        $('#2-done').hide();
+        $('#level-3').hide();
+        $('#3-done').hide();
+        $('#level-4').hide();
+        $('#4-done').hide();
+        $('#level-5').hide();
+        $('#failed').hide();
+        $('#congrats').hide();
+    })
+
+    $('#to-level-1').on('click', function() {
+        $('#start').hide ();
+        $('#level-1').show();
+    })
+    $('#to-level-2').on('click', function() {
+        $('#1-done').hide ();
+        $('#level-2').show();
+    })
+    $('#to-level-3').on('click', function() {
+        $('#2-done').hide ();
+        $('#level-3').show();
+    })
+    $('#to-level-4').on('click', function() {
+        $('#3-done').hide ();
+        $('#level-4').show();
+    })
+    $('#to-level-5').on('click', function() {
+        $('#4-done').hide ();
+        $('#level-5').show();
+    })
+
+    var mouseOnRed = false;
+    var mouseOnBlue = false;
+
+    var levelDone = 1;
+
+    $('.red').mouseenter(function() {
+        mouseOnRed = true;
+    })
+    $('.blue').mouseenter(function() {
+        mouseOnBlue = true;
+    })
+
+    $('.white').mouseleave(function() {
+        setTimeout(function() {
+            if(mouseOnRed === true && mouseOnBlue === false) {
+                $('#start').hide();
+                $('#level-1').hide();
+                $('#1-done').hide ();
+                $('#level-2').hide();
+                $('#2-done').hide();
+                $('#level-3').hide();
+                $('#3-done').hide();
+                $('#level-4').hide();
+                $('#4-done').hide();
+                $('#level-5').hide();
+                $('#failed').show(); // FAILED!!!
+                $('#congrats').hide();
+
+                levelDone = 1;
+            } else if (mouseOnRed === true && mouseOnBlue === true) {
+                $('#start').hide();
+                $('#level-1').hide();
+                $('#1-done').hide ();
+                $('#level-2').hide();
+                $('#2-done').hide();
+                $('#level-3').hide();
+                $('#3-done').hide();
+                $('#level-4').hide();
+                $('#4-done').hide();
+                $('#level-5').hide();
+                $('#failed').hide();
+                $('#congrats').hide();
+
+                var nextLevelName = '#' + levelDone + '-done';
+
+                if(levelDone > 4) {
+                    $('#congrats').show();
+                } else {
+                    $(nextLevelName).show();
+                }
+
+                levelDone++;
+            }
+
+            mouseOnRed = false;
+            mouseOnBlue = false;
+        }, 1)
+
+    })
+
+</script>
+</body>
+</html>

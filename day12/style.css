@@ -1,0 +1,60 @@
+/* Following styles are for every page in the 100 day project */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    background-color: #ffc9a5;
+}
+#header-container {
+    display: flex;
+    align-self: center;
+    height: 40px;
+    padding-top: 15px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#header-container a {
+    color: black;
+}
+#header-container div {
+    margin-right: 5px;
+}
+#header-container div:last-child {
+    margin-right: 0px;
+}
+a {
+    text-decoration: none;
+}
+/* end of the styles for all pages */
+#container {
+    width: 100%;
+    /*background-color: red;*/
+    height: 620px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    font-family: 'Droid Sans', sans-serif;
+    /*font-family: 'Titillium Web', sans-serif;*/
+    /*font-family: 'Fira Sans', sans-serif;*/
+    /*font-family: 'Catamaran', sans-serif;*/
+}
+button {
+    background-color: white;
+    width: 250px;
+    height: 100px;
+    margin-right: 30px;
+    border: 4px solid #333333;
+    margin-bottom: 30px;
+    padding: 0 0 0 0;
+    line-height: 20px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+button:focus {
+    outline:0;
+}

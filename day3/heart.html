@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Bangers|Chewy|Covered+By+Your+Grace|Armata' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <title>Mad for Mad Lips</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <!-- Following div is shown at the start -->
+    <div id="shown-div">
+        <div id="content-container">
+            <p class="sub-header">MAD LIPS</p>
+            <p id="theme">Fill out below ...</p>
+        </div>
+        <ul>
+          <li><span>Article of clothing</span> <input type="text" id="clothing"></li>
+          <li><span>Body part</span> <input type="text" id="body1"></li>
+          <li><span>Another body part</span> <input type="text" id="body2"></li>
+          <li><span>Another body part</span> <input type="text" id="body3"></li>
+          <li><span>Noun</span> <input type="text" id="noun1"></li>
+          <li><span>Another noun</span> <input type="text" id="noun2"></li>
+          <li><span>Another noun</span> <input type="text" id="noun3"></li>
+          <li><span>Plural noun</span> <input type="text" id="pluralnounA"></li>
+          <li><span>Another plural noun</span> <input type="text" id="pluralnounB"></li>
+          <li><span>Verb</span> <input type="text" id="$verb#"></li>
+          <li><span>Verb + "ing"</span> <input type="text" id="$verbing#"></li>
+          <li><span>Adjective</span> <input type="text" id="adjective1"></li>
+          <li><span>Another adjective</span> <input type="text" id="adjective2"></li>
+        </ul>
+
+        <button id="lip-button">LIP IT!</button>
+    </div>
+    <!-- Following div is shown when button is pressed -->
+    <div id="hidden-div">
+        <div id="content-container">
+            <p class="sub-header">MAD LIPS</p>
+            <p id="theme">How to date the prettiest guy/girl in town:</p>
+            <div id="story">
+                It&#39s simple. First off, each day, wear a/an <b class="answer">clothing</b>
+                that you know shows off your <b class="answer">body2</b> and make your <b class="answer">noun3</b> look
+                like a million <b class="answer">pluralnounB</b>. Even if the two of you make meaningful
+                <b class="answer">body3</b> contact, don&#39t admit it! No hugs or <b class="answer">pluralnounA</b>.
+                Just shake his/her <b class="answer">body1</b> firmly. And remember, when he/she asks
+                you out, and a chill may run down your <b class="answer">noun1</b>, and you can&#39t stop your
+                <b class="answer">noun2</b> from <b class="answer">$verbing#</b> just play it <b class="answer">adjective2</b>. Take a long pause
+                before answering in a very <b class="answer">adjective1</b> voice:<br/>
+                <i>I&#39ll have to <b class="answer">$verb#</b> it over...</i>
+            </div>
+            <a href="home.html" id="startover">START OVER</a>
+        </div>
+    </div>
+</body>
+<script>
+
+    $('#lip-button').on('click', function() {
+        var allInputs = $('input');
+        var storyText = $('#story').html();
+
+        for (var i = 0; i < allInputs.length; i++) {
+            var currentInput = $(allInputs[i]);
+            var currentId = currentInput.attr('id');
+            var currentValue = currentInput.val();
+
+            storyText = storyText.replace(currentId, currentValue);
+        }
+        $('#story').html(storyText);
+
+        $('#shown-div').hide();
+        $('#hidden-div').show();
+    })
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Bree+Serif|Francois+One' rel='stylesheet' type='text/css'>
+
+    <title>Donut truck</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <img src="foodtruck.png" alt="foodtruck with donuts on top"/>
+
+        <div id="speech">
+            <p>Anyone up for some donuts?!</p>
+        </div>
+    </div>
+<script>
+    $('#speech').hide();
+
+    $('img').animate({
+        right: '+=1000'
+    }, 5000, function() {
+        $('#speech').show();
+    });
+</script>
+</body>
+</html>

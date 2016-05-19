@@ -1,0 +1,79 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Color Clock</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <div id="current-time-text">
+            <p>The current time is:</p>
+        </div>
+        <div id="current-time">current time</div>
+        <div id="current-color-text">
+            <p>The current color is:</p>
+        </div>
+        <div id="current-color">current color</div>
+    </div>
+<script>
+    function updateTime () {
+        // use the new Date function to get the users computer's data on hours, minutes and seconds
+        var dateTimeObject = new Date();
+        var hours = dateTimeObject.getHours();
+        var minutes = dateTimeObject.getMinutes();
+        var seconds = dateTimeObject.getSeconds();
+
+        //
+        var colorHours = hours * 10;
+        var colorMinutes = minutes * 4;
+        var colorSeconds = seconds * 4;
+
+        // If the time is a single number (ie. 1 minute) then it will add a 0 before, for the HEX code
+        if (colorHours < 16) {
+            colorHours = '0' + colorHours.toString(16);
+        } else {
+            colorHours = colorHours.toString(16);
+        }
+        if (colorMinutes < 16) {
+            colorMinutes = '0' + colorMinutes.toString(16);
+        } else {
+            colorMinutes = colorMinutes.toString(16);
+        }
+        if (colorSeconds < 16) {
+            colorSeconds = '0' + colorSeconds.toString(16);
+        } else {
+            colorSeconds = colorSeconds.toString(16);
+        }
+
+        // Mulitply to make sure we avoid all the darker colors. 
+        var color = '#' + colorHours + colorMinutes + colorSeconds;
+        $('#current-color').html(color);
+        $('body').css('background-color', color);
+
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+        $('#current-time').html(hours + ':' + minutes + ':' + seconds);
+    }
+
+    setInterval(updateTime, 100);
+
+</script>
+</body>
+</html>

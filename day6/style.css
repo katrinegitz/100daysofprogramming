@@ -1,0 +1,55 @@
+/* Following styles are for every page in the 100 day project */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    font-family: sans-serif;
+}
+#header-container {
+    display: flex;
+    align-self: center;
+    height: 40px;
+    padding-top: 15px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#header-container a {
+    color: black;
+}
+#header-container div {
+    margin-right: 5px;
+}
+#header-container div:last-child {
+    margin-right: 0px;
+}
+a {
+    text-decoration: none;
+}
+#content-container {
+    height: 620px;
+}
+/* end of the styles for all pages */
+button {
+    width: 190px;
+    height: 80px;
+    background-color: white;
+    border: 2px dashed red;
+    position: absolute;
+    left: 100px;
+    top: 30px;
+}
+#content-secret {
+    height: 620px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: -30px;
+}

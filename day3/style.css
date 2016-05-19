@@ -1,0 +1,149 @@
+/* Following styles are for every page in the 100 day project */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+    background-color: #333333;
+
+    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Bangers', cursive;
+    font-family: 'Chewy', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Armata', sans-serif;
+}
+#header-container {
+    display: flex;
+    height: 40px;
+    padding-top: 15px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#header-container a {
+    color: white;
+}
+#header-container div {
+    margin-right: 5px;
+}
+#header-container div:last-child {
+    margin-right: 0px;
+}
+a {
+    text-decoration: none;
+}
+/* end of the styles for all pages */
+#content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#shown-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#header-title {
+    font-size: 120px;
+    font-family: 'Gloria Hallelujah', cursive;
+    width: 1000px;
+    text-align: center;
+    margin-top: -35px;
+    height: 190px;
+    margin-bottom: 130px;
+    color: white;
+}
+#theme {
+    font-size: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
+    width: 1000px;
+    text-align: center;
+    margin-top: -90px;
+    height: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+#content-container a {
+    margin-right: 40px;
+}
+#content-container a:last-child {
+    margin-right: 0px;
+}
+.sub-header {
+    font-size: 55px;
+    font-family: 'Gloria Hallelujah', cursive;
+    width: 1000px;
+    text-align: center;
+    color: white;
+    margin-top: -25px;
+    margin-bottom: 80px;
+}
+#hidden-div {
+    display: none;
+}
+ul {
+    list-style: none;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: white;
+    text-align: right;
+    padding-right: 70px;
+    margin-top: -10px;
+}
+li {
+    margin-bottom: 5px;
+    height: 25px;
+}
+span {
+    width: 160px;
+    display: inline-block;
+    padding-right: 10px;
+}
+input {
+    border: none;
+    height: 20px;
+}
+button {
+    width: 140px;
+    height: 35px;
+    border: none;
+    background-color: #18daff;
+    font-size: 12px;
+    font-family: 'Gloria Hallelujah', cursive;
+    margin-bottom: 40px;
+}
+#story {
+    width: 50%;
+    font-family: sans-serif;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+}
+#startover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 35px;
+    background-color: red;
+    margin-top: 40px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 12px;
+    background-color: #18daff;
+}
+.answer {
+    color: #18daff;
+}

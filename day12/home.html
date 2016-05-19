@@ -1,0 +1,72 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="animate.css">
+
+    <title>Click meeee!</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <button id="no1" class="animated">Click me!</button>
+        <button id="no2" class="animated">No! Click me!!</button>
+        <button id="no3" class="animated">Hey! What about clicking me?!</button>
+        <button id="no4" class="animated">Hola! Click me ...</button>
+        <button id="no5" class="animated">Dude! Why don't you click me?!</button>
+        <button id="no6" class="animated">Yo yo yo - click me!</button>
+        <button id="no7" class="animated">Please, I'm so poor. Click me!</button>
+        <button id="no8" class="animated">Just click me!</button>
+        <button id="no9" class="animated">Click click click!</button>
+        <button id="no10" class="animated">Just do it! Click me!</button>
+        <button id="no11" class="animated">Senorita, please click me!</button>
+        <button id="no12" class="animated">Click me 100 times - I'll be so happy!</button>
+        <button id="no13" class="animated">Don't know what to say ... other than:<br/>CLICK ME!</button>
+        <button id="no14" class="animated">Put down your phone and click me!</button>
+        <button id="no15" class="animated">Grab a coffee and click meeeee!</button>
+        <button id="no16" class="animated">Please ... click ... me ... now ...</button>
+    </div>
+<script>
+    // animations from animate.css
+    var animations = {
+        'no1' : 'bounce',
+        'no2' : 'flash',
+        'no3' : 'pulse',
+        'no4' : 'rubberBand',
+        'no5' : 'shake',
+        'no6' : 'headShake',
+        'no7' : 'swing',
+        'no8' : 'tada',
+        'no9' : 'wobble',
+        'no10' : 'jello',
+        'no11' : 'fadeIn',
+        'no12' : 'rotateIn',
+        'no13' : 'hinge',
+        'no14' : 'zoomIn',
+        'no15' : 'fadeOut',
+        'no16' : 'zoomInLeft',
+    }
+
+    $('button').on('click', function() {
+        var $clickedElement = $(this);
+        var key = $clickedElement.attr('id');
+
+        var animation = animations[key];
+        $clickedElement.addClass(animation);
+        function doSomething() {
+            $clickedElement.removeClass(animation)
+        }
+        $clickedElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', doSomething);
+    })
+
+</script>
+</body>
+</html>

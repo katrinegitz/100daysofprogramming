@@ -1,0 +1,53 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <title>Magic 8 ball</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <h1>Magic 8 ball</h1>
+    <div id="content-container">
+        <div id="question-container">
+            <h2>Close your eyes and think<br/>of a question ...</h2>
+            <button>Shake the Magic 8 ball!</button>
+        </div>
+        <div id="ball-container">
+            <div id="bigCircle">
+                <div id="round-border">
+                    <div id="background-circle">
+                        <div id="triangle">
+                            <div id="answer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var answers = ['<p id="tryAgain">Try again<br/>honey!</p>', '<p id="focus">Focus! I cant</br>read your</br>mind!</p>', '<p id="probably">Probably<br/>... not!</p>', '<p id="yes">Yes.<br/>Sure.<br/>Whatever.</p>'];
+
+    // Returns a random integer between min (included) and max (included)
+    // Using Math.round() will give you a non-uniform distribution!
+    function getRandomIntInclusive(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    $('button').on('click', function() {
+        var whichAnswer = getRandomIntInclusive(0, answers.length-1);
+
+        $('#answer').html(answers[whichAnswer]);
+    })
+
+</script>
+</body>
+</html>

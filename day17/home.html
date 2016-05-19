@@ -1,0 +1,132 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Bobby pin quiz</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <div id="quiz-start" class="content-container">
+            <h1>What kind of bobby pin are you?</h1>
+            <p id="intro-text">You propably know that there are a huge variarty of bobby pins<br/>out there, but the question is:</p>
+            <p>Which one are you? (que the dramatic music)</p>
+            <form>
+                <p class="question">1. If you were an animal, what animal would you be?</p>
+                    <input type="radio" name="animal" value="1"> Wolf.<br/>
+                    <input type="radio" name="animal" value="3"> Mosquito.<br/>
+                    <input type="radio" name="animal" value="4"> Dinosaur.<br/>
+                    <input type="radio" name="animal" value="2"> Mole.
+                <p class="question">2. What kind of vacation would you most like to go on?</p>
+                    <input type="radio" name="vacation" value="4"> Woods, with a tent.<br/>
+                    <input type="radio" name="vacation" value="2"> Big city, no money.<br/>
+                    <input type="radio" name="vacation" value="3"> By the sea, in a sleeping bag.<br/>
+                    <input type="radio" name="vacation" value="1"> In my bed, no pillows.
+                <p class="question">3. If you had a cat, what color would it be?</p>
+                    <input type="radio" name="cat" value="1"> Stripes.<br/>
+                    <input type="radio" name="cat" value="2"> Red and orange.<br/>
+                    <input type="radio" name="cat" value="3"> Black.<br/>
+                    <input type="radio" name="cat" value="4"> White like snow.
+                <p class="question">4. If you were a radio station, what kind of music would you play?</p>
+                    <input type="radio" name="radiostation" value="4"> Rock and roll.<br/>
+                    <input type="radio" name="radiostation" value="3"> Soft pop.<br/>
+                    <input type="radio" name="radiostation" value="2"> Hardcore rap.<br/>
+                    <input type="radio" name="radiostation" value="1"> Techno with a side of funk.
+                <p class="question">5. If at first you don't succeed, would you ...</p>
+                    <input type="radio" name="success" value="3"> Try, try again?<br/>
+                    <input type="radio" name="success" value="4"> Eat Ben &amp Jerry's?<br/>
+                    <input type="radio" name="success" value="1"> Eat Ben &amp Jerry's and cookies?<br/>
+                    <input type="radio" name="success" value="2"> Cry and eat Ben &amp Jerry's?
+            </form>
+            <button id="submit">What bobby pin am I?</button>
+        </div>
+        <div id="fancy-result" class="content-container">
+            <h1>You are a FANCY bobby pin!</h1>
+            <div class="result-image"></div>
+            <button class="try-again-button">TRY AGAIN</button>
+        </div>
+        <div id="boring-result" class="content-container">
+            <h1>You are a BORING bobby pin!</h1>
+            <div class="result-image"></div>
+            <button class="try-again-button">TRY AGAIN</button>
+        </div>
+        <div id="bug-result" class="content-container">
+            <h1>You are a BUG bobby pin!</h1>
+            <div class="result-image"></div>
+            <button class="try-again-button">TRY AGAIN</button>
+        </div>
+        <div id="omg-result" class="content-container">
+            <h1>You are a OMG/XOXO/LOL bobby pin!</h1>
+            <div class="result-image"></div>
+            <button class="try-again-button">TRY AGAIN</button>
+        </div>
+    </div>
+<script>
+
+    $('#quiz-start').show();
+    $('#fancy-result').hide();
+    $('#boring-result').hide();
+    $('#bug-result').hide();
+    $('#omg-result').hide();
+
+    $('#submit').on('click', function() {
+        var formArray = $('form').serializeArray();
+
+        var sum = 0;
+
+        for (var i = 0; i < formArray.length; i++) {
+
+            var objectValue = formArray[i].value;
+
+            objectValue = parseInt(objectValue); //this function makes the string (with a number from the array) into a number (integer = number without decimals)
+
+            sum += objectValue;
+        }
+
+        if (sum < 5) {
+            alert('Please fill out all the questions, dummy!');
+        }
+
+        if(sum < 9) {
+            $('#quiz-start').hide();
+            $('#fancy-result').show();
+        }
+
+        if(sum < 13 && sum >= 9) {
+            $('#quiz-start').hide();
+            $('#boring-result').show();
+        }
+
+        if (sum < 17 && sum >= 13) {
+            $('#quiz-start').hide();
+            $('#bug-result').show();
+        }
+
+        if (sum <= 20 && sum >= 17) {
+            $('#quiz-start').hide();
+            $('#omg-result').show();
+        }
+    })
+
+    $('.try-again-button').on('click', function() {
+        $('input').prop('checked', false);
+
+        $('#quiz-start').show();
+        $('#fancy-result').hide();
+        $('#boring-result').hide();
+        $('#bug-result').hide();
+        $('#omg-result').hide();
+    })
+
+</script>
+</body>
+</html>

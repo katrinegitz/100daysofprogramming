@@ -1,0 +1,45 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <title>Secret of the World</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id=content-container>
+        <button>Click here to reveal the secret of the World!</button>
+    </div>
+<script>
+    $('button').hover(
+        // the first function handles what happens when we mouse hovers in
+        function() {
+            var containerWidth = $('#content-container').innerWidth();
+            var containerHeight = $('#content-container').innerHeight();
+
+            var yPosition = Math.max(0, Math.random() * containerHeight-80);
+            var xPosition = Math.max(0, Math.random()*containerWidth-190);
+
+            $(this).css('top', yPosition);
+            $(this).css('left', xPosition);
+        },
+        // the second function handles what happens when we mouse hovers out
+        function() {
+            // I dont need to use the second function for this project
+        }
+    )
+    $('button').on('click', function() {
+        window.location.href = 'secret.html';
+    })
+
+</script>
+</body>
+</html>

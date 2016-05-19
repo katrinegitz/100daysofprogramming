@@ -1,0 +1,76 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Junk food selector</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <p id="food-text">What junk food* should I have today?</p>
+        <div id="picture-container"></div>
+        <button>Randomize my junk food!</button>
+        <p id="star">* Yes, this is a very politically un-correct page</p>
+    </div>
+<script>
+var lock = false;
+
+    $('button').on('click', function() {
+
+        if (lock === true) {
+            return;
+        }
+
+        lock = true;
+
+        var foodArray = [
+            {
+                image: 'url("taco.png")',
+                name: 'TACOS!!!!'
+            },
+            {
+                image: 'url("pizza.png")',
+                name: 'PIZZA!!!!'
+            },
+            {
+                image: 'url("burger.png")',
+                name: 'BURGER!!!!'
+            }
+        ];
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        var stop = false;
+
+        function changeToRandom () {
+            var randomFood = getRandomInt(0, foodArray.length);
+            $('#picture-container').css('background-image', foodArray[randomFood].image);
+
+            if (stop === false) {
+                setTimeout(changeToRandom, 100);
+            } else {
+                $('#food-text').html(foodArray[randomFood].name);
+                lock = false;
+            }
+        }
+        changeToRandom();
+
+        setTimeout(function() {
+            stop = true;
+            }, 5000);
+    })
+
+</script>
+</body>
+</html>

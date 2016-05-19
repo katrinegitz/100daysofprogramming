@@ -1,0 +1,184 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Catch the Type</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <div id="container">
+<!-- Until here -->
+        <div id="intro">
+            <h1>Catch the Type!</h1>
+            <p>
+                Type the letters as they fall to score points.<br/>
+                The game ends if you let 20 letters escape.<br/>
+                Good Luck!
+            </p>
+        </div>
+        <div id="catch-type">
+            <div id="type-container"></div>
+            <div id="score-container">
+                <p class="p-text">correct:</p>
+                <p id="correct-score">0</p>
+                <p class="p-text">wrong:</p>
+                <p id="wrong-score">0</p>
+                <p class="p-text">missed:</p>
+                <p id="missed-score">0</p>
+            </div>
+        </div>
+        <div id="game-over">
+            <h1>Game over!</h1>
+            <div id="score"></div>
+            <div id="you-got"></div>
+            <button id="start-again">Start again</button>
+        </div>
+    </div>
+<script>
+
+    $('#intro').show();
+    $('#catch-type').hide();
+    $('#game-over').hide();
+
+    var missed = 0;
+    var correct = 0;
+    var wrong = 0;
+    var gameStarted = false;
+
+    var symbolsArray = [
+        'a', 'b', 'c', 'd', 'e',
+        'f', 'g', 'h', 'i', 'j',
+        '@', 'k', 'l', 'm', 'n',
+        'o', 'p', 'r', 's', 't',
+        'u', 'v', 'x', 'q', 'B',
+        'T', 'L', 'C', 'Z', 'P',
+        'E', 'K', 'X', 'H', 'S',
+        'A', '-', '*', '$', '5',
+        '+', 'D', 'F', 'G', 'J'
+    ];
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function getRandomSymbol() {
+        var randomSymbolIndex = getRandomInt(0, symbolsArray.length);
+        return symbolsArray[randomSymbolIndex];
+    }
+
+    function addSymbol(symbol, duration) {
+        if (gameStarted === false) {
+            return;
+        }
+        var randomLeftPosition = getRandomInt(10, $('#type-container').width());
+        var newSymbol = $('<div class="symbols">' + symbol + '</div>')
+            .css('left', randomLeftPosition)
+            .animate({top: 450}, duration, 'linear', function() {
+                // the first if checks whether the new symbol is not removed from the DOM.
+                if (!jQuery.contains(document, newSymbol[0])) {
+                    return;
+                }
+                if (gameStarted === false) {
+                    return;
+                }
+                newSymbol.remove();
+
+                missed ++;
+                $('#missed-score').html(missed);
+                if (missed >= 20) {
+                    gameStarted = false;
+                    $('.symbols').remove();
+
+                    var correctpercentage = correct/(correct+missed)*100;
+                    $('#score').html(correctpercentage.toFixed(2)+'%');
+                    $('#you-got').html('You got ' + correct + ' right, with ' + wrong + ' errors.');
+
+                    $('#intro').hide();
+                    $('#catch-type').hide();
+                    $('#game-over').show();
+                }
+
+                var randomSymbol = getRandomSymbol();
+                var randomDuration = getRandomInt(2500, 8000);
+                addSymbol(randomSymbol, randomDuration);
+            });
+        $('#type-container').append(newSymbol);
+    }
+
+    function startGame() {
+        setTimeout(function() {
+            $('#intro').fadeOut('slow');
+            $('#catch-type').fadeIn('slow');
+
+            gameStarted = true;
+
+            for (var i = 0; i < 5; i++) {
+                var randomSymbol = getRandomSymbol();
+                var randomDuration = getRandomInt(2500, 8000);
+                addSymbol(randomSymbol, randomDuration);
+            }
+        }, 3000)
+    }
+
+    startGame();
+
+    $(document).keypress(function(event) {
+        var charcode = event.charCode;
+        var letter = String.fromCharCode(charcode);
+
+        if(gameStarted === true) {
+            var visibleSymbols = $('.symbols');
+            var wasItCorrect = false;
+
+            for (var i = 0; i < visibleSymbols.length; i++) {
+                var $currentSymbol = $(visibleSymbols[i])
+                var currentSymbol = $currentSymbol.html();
+                if (currentSymbol === letter) {
+                    correct++;
+                    $currentSymbol.remove();
+                    var randomSymbol = getRandomSymbol();
+                    var randomDuration = getRandomInt(2500, 8000);
+                    addSymbol(randomSymbol, randomDuration);
+                    $('#correct-score').html(correct);
+
+                    wasItCorrect = true;
+
+                    // %10 means modulus, and it means that for every time you can divide the number with 10
+                    if (correct %10 === 0) {
+                        var randomSymbol = getRandomSymbol();
+                        var randomDuration = getRandomInt(2500, 8000);
+                        addSymbol(randomSymbol, randomDuration);
+                    }
+                }
+            }
+            if (wasItCorrect === false) {
+                wrong++;
+                $('#wrong-score').html(wrong);
+            }
+        }
+    })
+
+    $('#start-again').on('click', function() {
+        correct = 0;
+        wrong = 0;
+        missed = 0;
+        $('#correct-score').html('0');
+        $('#wrong-score').html('0');
+        $('#missed-score').html('0');
+
+        $('#intro').show();
+        $('#game-over').hide();
+        startGame();
+    })
+
+</script>
+</body>
+</html>

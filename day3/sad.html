@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Bangers|Chewy|Covered+By+Your+Grace|Armata' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <title>Mad for Mad Lips</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <!-- Following div is shown at the start -->
+    <div id="shown-div">
+        <div id="content-container">
+            <p class="sub-header">MAD LIPS</p>
+            <p id="theme">Fill out below ...</p>
+        </div>
+        <ul>
+          <li><span>Adjective</span> <input type="text" id="adjective1"></li>
+          <li><span>Another adjective</span> <input type="text" id="adjective2"></li>
+          <li><span>Another adjective</span> <input type="text" id="adjective3"></li>
+          <li><span>Another adjective</span> <input type="text" id="adjective4"></li>
+          <li><span>Adjective + "er"</span> <input type="text" id="$adjective$er"></li>
+          <li><span>Noun</span> <input type="text" id="noun1"></li>
+          <li><span>Another noun</span> <input type="text" id="noun2"></li>
+          <li><span>Pronoun</span> <input type="text" id="pro$noun$"></li>
+          <li><span>Sailing vehicle</span> <input type="text" id="sailing"></li>
+          <li><span>Award</span> <input type="text" id="award"></li>
+          <li><span>Verb</span> <input type="text" id="$verb$1"></li>
+          <li><span>Another verb</span> <input type="text" id="$verb$2"></li>
+          <li><span>Verb + "ing"</span> <input type="text" id="verbing1"></li>
+          <li><span>Another verb + "ing"</span> <input type="text" id="verbing2"></li>
+          <li><span>Verb in past tense</span> <input type="text" id="pastverb"></li>
+          <li><span>Feeling</span> <input type="text" id="feeling"></li>
+          <li><span>Car brand</span> <input type="text" id="carbrand"></li>
+        </ul>
+
+        <button id="lip-button">LIP IT!</button>
+    </div>
+    <!-- Following div is shown when button is pressed -->
+    <div id="hidden-div">
+        <div id="content-container">
+            <p class="sub-header">MAD LIPS</p>
+            <p id="theme">Here's your eulogy:</p>
+            <div id="story">
+                If you are <b class="answer">verbing2</b> this, it means I am <b class="answer">adjective2</b>. I led a
+                <b class="answer">adjective1</b> life, filled with <b class="answer">adjective3</b> <b class="answer">noun2</b> and even better
+                memories. I&#39ll never forget the day I won my <b class="answer">award</b>, and showed it
+                to my wife. She remarked <i>It&#39s so much <b class="answer">$adjective$er</b> than I
+                thought!</i>. To which I replied <i>That&#39s what <b class="answer">pro$noun$</b></b> said!</i>. We
+                laughed and <b class="answer">pastverb</b>. I hope to be remembered as a <b class="answer">noun1</b>
+                who loved to make people <b class="answer">$verb$2</b>, but more importantly, as a(n)
+                <b class="answer">adjective4</b> man. Thank you all for <b class="answer">verbing1</b>, I promise not to
+                <b class="answer">$verb$1</b> you while you sleep.
+                <b class="answer">feeling</b> forever, <b class="answer">carbrand</b> Mc<b class="answer">sailing</b>.
+            </div>
+            <a href="home.html" id="startover">START OVER</a>
+        </div>
+    </div>
+</body>
+<script>
+
+    $('#lip-button').on('click', function() {
+        var allInputs = $('input');
+        var storyText = $('#story').html();
+
+        for (var i = 0; i < allInputs.length; i++) {
+            var currentInput = $(allInputs[i]);
+            var currentId = currentInput.attr('id');
+            var currentValue = currentInput.val();
+
+            storyText = storyText.replace(currentId, currentValue);
+        }
+        $('#story').html(storyText);
+
+        $('#shown-div').hide();
+        $('#hidden-div').show();
+    })
+
+</script>
+</html>

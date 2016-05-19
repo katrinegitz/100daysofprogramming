@@ -1,0 +1,72 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Click challenge</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <div id="start">
+            <h1>The Click Challenge</h1>
+            <h2>How many clicks can you get per second?</p>
+            <p>Click start and you'll have 30 seconds to click<br/>anywhere on the page as many times as you can.</p>
+            <button>START!</button>
+        </div>
+        <div id="counter">
+            <div id="counter-container"></div>
+        </div>
+        <div id="done">
+            <h1>Time's up!</h1>
+            <p id="number-of-clicks"></p>
+            <p id="clicks-per-second"></p>
+            <button id="try-again">TRY AGAIN</button>
+        </div>
+    </div>
+<script>
+
+    var clickSum = 0;
+
+    $('#start').show();
+    $('#counter').hide();
+    $('#done').hide();
+
+    $('#start').on('click', function() {
+        $('#start').hide();
+        $('#counter').show();
+
+        setTimeout(function() {
+            $('#counter').hide();
+            $('#done').show();
+
+            var clicksPerSecond = clickSum/30;
+
+            $('#number-of-clicks').html('You got ' + clickSum + ' clicks!');
+            $('#clicks-per-second').html('Thats ' + clicksPerSecond.toFixed(2) + ' clicks per second!')
+        }, 30000)
+    })
+
+    $('#try-again').on('click', function() {
+        $('#done').hide();
+        $('#start').show();
+
+        clickSum = 0;
+    })
+
+    $('#counter').on('click', function() {
+        clickSum++;
+        $('#counter-container').html(clickSum);
+    })
+
+</script>
+</body>
+</html>

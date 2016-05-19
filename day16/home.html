@@ -1,0 +1,111 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>Labyrinth</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <h1>Lead the umbrella to the rain!</h1>
+        <div id="labyrinth">
+            <div id="start"></div>
+            <p id="place-mouse-here">Place umbrella<br/>here to start</p>
+            <div id="arrow">arrow</div>
+            <div id="labyrinth-container">
+                <div class="labyrinth" id="el1"></div>
+                <div class="labyrinth" id="el2"></div>
+                <div class="labyrinth" id="el3"></div>
+                <div class="labyrinth" id="el4"></div>
+                <div class="labyrinth" id="el5"></div>
+                <div class="labyrinth" id="el6"></div>
+                <div class="labyrinth" id="el7"></div>
+                <div class="labyrinth" id="el8"></div>
+                <div class="labyrinth" id="el9"></div>
+                <div class="labyrinth" id="el10"></div>
+                <div class="labyrinth" id="el11"></div>
+                <div class="labyrinth" id="el12"></div>
+                <div class="labyrinth" id="el13"></div>
+                <div class="labyrinth" id="el14"></div>
+                <div class="labyrinth" id="el15"></div>
+                <div class="labyrinth" id="el16"></div>
+                <div class="labyrinth" id="el17"></div>
+                <div class="labyrinth" id="el18"></div>
+                <div class="labyrinth" id="el19"></div>
+                <div class="labyrinth" id="el20"></div>
+                <div class="labyrinth" id="el21"></div>
+                <div class="labyrinth" id="el22"></div>
+                <div class="labyrinth" id="el23"></div>
+                <div class="labyrinth" id="el24"></div>
+                <div class="labyrinth" id="el25"></div>
+                <div class="labyrinth" id="el26"></div>
+                <div class="labyrinth" id="el27"></div>
+                <div class="labyrinth" id="el28"></div>
+                <div class="labyrinth" id="el29"></div>
+                <div class="labyrinth" id="el30"></div>
+                <div class="labyrinth" id="el31"></div>
+                <div class="labyrinth" id="el32"></div>
+            </div>
+            <div id="rain-container">
+                <img src="rain.png" id="rain"/>
+            </div>
+        </div>
+        <div id="ups">
+            <p class="ups">UPS!</p>
+            <button id="start-again">START AGAIN</button>
+        </div>
+        <div id="congrats">
+            <p id="omg">OMG! You made it through!</p>
+            <p id="cupcake-here">Here's a virtual cupcake:</p>
+            <img src="cupcake.png" id="cupcake"/>
+            <button id="start-again2">START AGAIN</button>
+        </div>
+    </div>
+<script>
+    var hasStarted = false;
+
+    $('#congrats').hide();
+    $('#ups').hide();
+
+    $('#start').hover(function() {
+        hasStarted = true;
+    })
+
+    $('.labyrinth').hover(function() {
+        if(hasStarted === true) {
+            $('#ups').show();
+            $('#labyrinth').hide();
+            hasStarted = false;
+        }
+    })
+
+    $('#start-again').on('click', function() {
+        $('#ups').hide();
+        $('#labyrinth').show();
+    })
+
+    $('#rain-container').hover(function() {
+        if(hasStarted === true) {
+            $('#congrats').show();
+            $('#labyrinth').hide();
+            hasStarted = false;
+        }
+    })
+
+    $('#start-again2').on('click', function() {
+        $('#congrats').hide();
+        $('#labyrinth').show();
+    })
+
+</script>
+</body>
+</html>

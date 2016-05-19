@@ -1,0 +1,96 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css"/>
+    <script src="jquery-ui/jquery-ui.js"></script>
+
+    <title>Ice Cream Creator</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <div id="container">
+<!-- Until here -->
+        <div id="headline">
+            <h1>Create your own ice cream!</h1>
+        </div>
+        <div id="draggable-container">
+            <div id="cone1" class="ui-widget-content"></div>
+            <div id="cone2" class="ui-widget-content"></div>
+            <div id="icecream1" class="ui-widget-content stack"></div>
+            <div id="icecream2" class="ui-widget-content stack"></div>
+            <div id="icecream3" class="ui-widget-content stack"></div>
+            <div id="icecream4" class="ui-widget-content stack"></div>
+            <div id="sprinkel1" class="ui-widget-content stack"></div>
+            <div id="sprinkel2" class="ui-widget-content stack"></div>
+            <div id="sprinkel3" class="ui-widget-content stack"></div>
+        </div>
+    </div>
+<script>
+
+    $(function() {
+        $( "#cone1" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false
+            });
+        $( "#cone2" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false
+            });
+        $( "#icecream1" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#icecream2" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#icecream3" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#icecream4" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#sprinkel1" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#sprinkel2" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+        $( "#sprinkel3" ).draggable(
+            {
+                containment: "#draggable-container",
+                scroll: false,
+                stack: ".stack"
+            });
+    });
+
+
+</script>
+</body>
+</html>

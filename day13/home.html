@@ -1,0 +1,63 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+
+    <title>Forgiveness generator</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+<!-- Until here -->
+    <div id="container">
+        <p id="tell-me">What do you want to be forgiven for?</p>
+        <div id="input-container">
+            <input id="input-text" type="text" placeholder="I want to be forgiven for ..."/>
+            <button id="forgive-button">Forgive me!</button>
+        </div>
+    </div>
+<script>
+
+    $('button').on('click', function() {
+        var forgivenessValue = $('#input-text').val();
+        forgivenessValue = forgivenessValue.replace('my', 'your');
+
+        $('#tell-me').html('So you&#39re ' + forgivenessValue + '?');
+
+        answerArray = [
+            'That&#39s okay honey, we all do that.',
+            'No worries, all is forgiven.',
+            'Hugs for you, from all of me.',
+            '{Virtual hug}',
+            'Sweetie, I still love you'
+        ]
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function changeToRandom () {
+            var randomAnswer = getRandomInt(0, answerArray.length);
+
+            if($('#input-text').val() == ''){
+                $('#tell-me').html('So you don&#39t fill out forms?!')
+                $('#tell-me').append('<p>' + answerArray[randomAnswer] + '<p>').css('text-align', 'center');
+                $('#input-container').css('margin-top', '50px');
+            } else {
+                $('#tell-me').append('<p>' + answerArray[randomAnswer] + '<p>').css('text-align', 'center');
+                $('#input-container').css('margin-top', '50px');
+            }
+        }
+        changeToRandom();
+    })
+
+</script>
+</body>
+</html>

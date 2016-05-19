@@ -1,0 +1,112 @@
+/* Following styles are for every page in the 100 day project */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+}
+#header-container {
+    display: flex;
+    align-self: center;
+    height: 40px;
+    padding-top: 15px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#header-container a {
+    color: black;
+}
+#header-container div {
+    margin-right: 5px;
+}
+#header-container div:last-child {
+    margin-right: 0px;
+}
+a {
+    text-decoration: none;
+}
+/* end of the styles for all pages */
+#container {
+    width: 100%;
+    margin-top: 170px;
+}
+img {
+    position: relative;
+    right: -1140px;
+    width: 300px;
+    height: 266px;
+}
+#speech {
+  position: absolute;
+  top: 135px;
+  left: 390px;
+  width:239px;
+  padding:50px 40px;
+  margin: 0;
+  text-align:center;
+  color:#fff;
+  background: #fff100;
+  NOTES:
+  -webkit-border-radius:220px 120px; // produces oval in safari 4 and chrome 4
+  -webkit-border-radius:220px / 120px; // produces oval in chrome 4 (again!) but not supported in safari 4
+  Not correct application of the current spec, therefore, using longhand to avoid future problems with webkit corrects this
+  */
+  -webkit-border-top-left-radius:220px 120px;
+  -webkit-border-top-right-radius:220px 120px;
+  -webkit-border-bottom-right-radius:220px 120px;
+  -webkit-border-bottom-left-radius:220px 120px;
+  -moz-border-radius:220px / 120px;
+  border-radius:220px / 120px;
+}
+
+#speech p {
+    font-size: 18px;
+    color: #f78f02;
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Bree Serif', serif;
+}
+
+/* creates part of the curve */
+#speech:before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  bottom:-30px;
+  right:50%;
+  height:30px;
+  border-right:60px solid #fff100;
+  background:#fff100; /* need this for webkit - bug in handling of border-radius */
+  /* css3 */
+  -webkit-border-bottom-right-radius:80px 50px;
+  -moz-border-radius-bottomright:80px 50px;
+  border-bottom-right-radius:80px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform:translate(0, -2px);
+  -moz-transform:translate(0, -2px);
+  -ms-transform:translate(0, -2px);
+  -o-transform:translate(0, -2px);
+  transform:translate(0, -2px);
+}
+
+/* creates part of the curved pointy bit */
+#speech:after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  bottom:-30px;
+  right:50%;
+  width:60px;
+  height:30px;
+  background:#fff;
+  /* css3 */
+  -webkit-border-bottom-right-radius:40px 50px;
+  -moz-border-radius-bottomright:40px 50px;
+  border-bottom-right-radius:40px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform:translate(-30px, -2px);
+  -moz-transform:translate(-30px, -2px);
+  -ms-transform:translate(-30px, -2px);
+  -o-transform:translate(-30px, -2px);
+  transform:translate(-30px, -2px);
+}
