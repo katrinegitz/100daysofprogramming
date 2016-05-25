@@ -19,10 +19,34 @@
     </div>
     <div id="container">
 <!-- Until here -->
+        <div id="start-page">
+            <h1>How crazy are you?</h1>
+            <p>This is the <a class="crazy-link" href="https://www.instagram.com/crazyjewishmom/" target="_blank">Crazy Jewish Mom</a> detector.</p>
+            <p>If you are worried whether you are becoming<br/>like the Crazy Jewish Mom, and if you want to be sure that<br />your kids won't hate your next text, please start<br />writing your text here and this machine will<br />determine if it's safe for sending.</p>
+            <p>The machine detects words that crazy Jewish mothers will<br />often write, and evaluates accordingly.</p>
+            <h2>Start typing!</h2>
+        </div>
+        <div id="typing-page">
+            <div id="type-container">type
+                <!-- here goes the text that the user types -->
+            </div>
+            <div id="counter-container">Oh Oh you are approaching crazy-ville!
+                <!-- green if they are ok, yellow if they are moving towards crazy, red if they are full on crazy -->
+            </div>
+        </div>
     </div>
 <script>
 
+    $('#start-page').hide();
+    $('#typing-page').show();
 
+    $('body').keypress(function(event) {
+
+    })
+
+    grøn baggrundsfarve = #68af68
+    gul baggrundsfarve = #d7dd54
+    rød baggrundsfarve = #e22929
 
 </script>
 </body>
