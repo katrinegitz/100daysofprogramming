@@ -29,6 +29,7 @@ a {
 #container {
     width: 100%;
     font-family: 'Droid Sans', sans-serif;
+    height: 620px;
 }
 /* end of the styles for all pages */
 p {
@@ -53,7 +54,7 @@ h2 {
     align-items: center;
     flex-direction: column;
 }
-#type-container {
+textarea {
     width: 800px;
     height: 400px;
     border-radius: 10px;
@@ -62,7 +63,9 @@ h2 {
     justify-content: center;
     padding-top: 20px;
     margin-top: 20px;
-    background-color: red;
+    background-color: white;
+    outline: none;
+    border: none;
 }
 #counter-container {
     background-color: white;

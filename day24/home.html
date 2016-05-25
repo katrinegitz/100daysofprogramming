@@ -27,26 +27,57 @@
             <h2>Start typing!</h2>
         </div>
         <div id="typing-page">
-            <div id="type-container">type
-                <!-- here goes the text that the user types -->
+            <div id="type-container">
+                <textarea></textarea>
             </div>
-            <div id="counter-container">Oh Oh you are approaching crazy-ville!
+            <div id="counter-container">
                 <!-- green if they are ok, yellow if they are moving towards crazy, red if they are full on crazy -->
             </div>
         </div>
     </div>
 <script>
 
-    $('#start-page').hide();
-    $('#typing-page').show();
+    $('#start-page').show();
+    $('#typing-page').hide();
 
-    $('body').keypress(function(event) {
+    var crazyWordArray = ['wedding', 'ring', 'fiancee', 'sperminator', 'deathtrap'];
 
+    $(document).keyup(function(event) {
+        
+        $('#start-page').hide();
+        $('#typing-page').show();
+        $('textarea').focus();
+
+        var userText = $('textarea').val();
+        var userTextLowerCase = userText.toLowerCase();
+        var justTextAndSpaces = userTextLowerCase.replace(/[^a-z ]*/g, '');
+        var userTextWordsArray = justTextAndSpaces.split(' ');
+
+        var wordCounter = 0;
+
+        for (var i = 0; i < userTextWordsArray.length; i++) {
+            var currentWord = userTextWordsArray[i];
+
+            for (var h = 0; h < crazyWordArray.length; h++) {
+                var currentCrazyWord = crazyWordArray[h];
+
+                if (currentCrazyWord == currentWord) {
+                    wordCounter++;
+                }
+            }
+        }
+
+        if (wordCounter < 3) {
+            $('body').css('background-color', '#68af68');
+            $('#counter-container').html('You&#39re good! No crazy-ness.')
+        } else if (wordCounter > 3 && wordCounter < 8) {
+            $('body').css('background-color', '#d7dd54');
+            $('#counter-container').html('Oh oh! You are approaching crazy-ville!')
+        } else if (wordCounter > 8) {
+            $('body').css('background-color', '#e22929');
+            $('#counter-container').html('You have gone full-on crazy! Back away from the keyboard!')
+        }
     })
-
-    grøn baggrundsfarve = #68af68
-    gul baggrundsfarve = #d7dd54
-    rød baggrundsfarve = #e22929
 
 </script>
 </body>
