@@ -1,0 +1,142 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>How far does it go?</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+    </div>
+    <div id="container">
+<!-- Until here -->
+        <div id="header">
+            <h1>How far does it go?</h1>
+            <p>Calculate the average kilometers per litre of gas for your car.</p>
+            <p>The more receipts you put in, the more precise the average will be.</p>
+        </div>
+        <div id="input-container">
+            <select id='month'>
+                <option selected>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+            <input type="number" placeholder="Kilometers" id="kilometer-input"/>
+            <input type="number" placeholder="Liters" id="liter-input"/>
+            <button>Calculate</button>
+        </div>
+        <div id="result-container">
+            <div id="result">0</div>
+            <div id="km-container">
+                <p>km/liter</p>
+            </div>
+        </div>
+        <div id="entry-explain-container">
+            <p id="month">Month</p>
+            <p id="kilometers">Kilometers</p>
+            <p id="liters">Liters of gas</p>
+            <p id="entry-result">Km/litre result</p>
+        </div>
+        <div id="entry-container">
+            <!-- Here goes the objects from the array
+                <div class="entry">
+                    <p class="month">September</p>
+                    <p class="kilometers">756,58</p>
+                    <p class="liters">45,78</p>
+                    <p class="entry-result">25,65</p>
+                </div>
+            -->
+        </div>
+    </div>
+<script>
+
+    var entryArray = [
+        // {
+        //     month: 'September',
+        //     kilometer: 700,
+        //     liter: 45,
+        // },
+        // {
+        //     month: 'April',
+        //     kilometer: 500,
+        //     liter: 25,
+        // },
+        // {
+        //     month: 'May',
+        //     kilometer: 800,
+        //     liter: 50,
+        // }
+    ];
+
+    function updateHTML() {
+        var html = '';
+        var sumOfResults = 0;
+
+        for (var i = 0; i < entryArray.length; i++) {
+            var entryElement = entryArray[i];
+
+            var entryResult = entryElement.kilometer/entryElement.liter;
+
+            var entryElementHTML = '<div class="entry">'+
+            '<p class="month">' + entryElement.month + '</p>'+
+            '<p class="kilometers">' + entryElement.kilometer + '</p>'+
+            '<p class="liters">' + entryElement.liter + '</p>'+
+            '<p class="entry-result">' + entryResult.toFixed(1) + '</p>'+
+            '</div>'
+
+            html += entryElementHTML;
+            sumOfResults += entryResult;
+        }
+        $('#entry-container').html(html);
+
+        if(entryArray.length > 0) {
+            $('#result').html( (sumOfResults/entryArray.length).toFixed(0) );
+        } else {
+            return;
+        }
+
+    }
+    updateHTML();
+
+    $('button').on('click', function() {
+        var month = $('#month').val();
+        var kilometers = $('#kilometer-input').val();
+        var liters = $('#liter-input').val();
+
+        if(kilometers > 0 && liters > 0) {
+            entryArray.unshift(
+                {
+                    month: month,
+                    kilometer: kilometers,
+                    liter: liters
+                }
+            );
+
+            updateHTML();
+
+            $('#kilometer-input').val('').focus();
+            $('#liter-input').val('');
+
+        } else {
+            alert('Please put some numbers in all the fields, dumbass.');
+        }
+    })
+
+</script>
+</body>
+</html>
