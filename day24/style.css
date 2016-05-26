@@ -37,12 +37,12 @@ p {
     line-height: 30px;
 }
 .crazy-link {
-    color: red;
+    color: #68af68;
     font-weight: bold;
     font-style: italic;
 }
 h2 {
-    color: red;
+    color: #68af68;
 }
 #start-page {
     display: flex;
@@ -66,6 +66,7 @@ textarea {
     background-color: white;
     outline: none;
     border: none;
+    font-size: 35px;
 }
 #counter-container {
     background-color: white;
