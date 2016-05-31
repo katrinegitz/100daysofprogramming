@@ -40,7 +40,23 @@
     $('#start-page').show();
     $('#typing-page').hide();
 
-    var crazyWordArray = ['wedding', 'ring', 'fiancee', 'sperminator', 'deathtrap', 'proposal', 'grandspawn'];
+    var crazyWordArray = [
+        'wedding',
+        'ring',
+        'fiancee',
+        'sperminator',
+        'deathtrap',
+        'proposal',
+        'grandspawn',
+        'single',
+        'eggs',
+        'rotting',
+        'expired',
+        'catfish',
+        'sliced',
+        'superjew',
+        'eggmergency'
+    ];
 
     $(document).keyup(function(event) {
 
@@ -70,10 +86,10 @@
         if (wordCounter < 3) {
             $('body').css('background-color', '#68af68');
             $('#counter-container').html('You&#39re good! No crazy-ness.')
-        } else if (wordCounter > 3 && wordCounter < 8) {
+        } else if (wordCounter > 3 && wordCounter < 5) {
             $('body').css('background-color', '#d7dd54');
             $('#counter-container').html('Oh oh! You are approaching crazy-ville!')
-        } else if (wordCounter > 8) {
+        } else if (wordCounter > 5) {
             $('body').css('background-color', '#e22929');
             $('#counter-container').html('You have gone full-on crazy! Back away from the keyboard!')
         }
