@@ -1,0 +1,58 @@
+<!-- Copy from here for every page -->
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
+
+    <title>My first API</title>
+</head>
+<body>
+    <div id="header-container">
+        <div><a href="../index.html" target="_blank">home</a></div>
+        <div>|</div>
+        <div><a href="https://100daysofprogramming.wordpress.com/" target="_blank">blog</a></div>
+        <div>|</div>
+        <div><a href="https://github.com/katrinegitz" target="_blank">github</a></div>
+    </div>
+    <h1>Auto-generate a joke with your name in it!</h1>
+    <div id="container">
+<!-- Until here -->
+        <div id="input-container">
+            <input id="firstname" placeholder="Your first name" type="text"/>
+            <input id="lastname" placeholder="Your last name" type="text"/>
+            <button>Joke me!</button>
+        </div>
+        <div id="joke-container">
+            <!-- joke goes here -->
+        </div>
+    </div>
+<script>
+
+    $('button').on('click', function() {
+        var firstName = $('#firstname').val();
+        var lastName = $('#lastname').val();
+        var url = 'http://api.icndb.com/jokes/random?firstName=' + firstName + '&lastName=' + lastName;
+
+        $.ajax(
+            {
+                type: 'GET',
+                url: url,
+                async: false,
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                success: function(data) {
+                    var joke = data.value.joke;
+                    $('#joke-container').html(joke);
+                },
+                error: function(data) {
+                    alert('Something went wrong, please try again.')
+                }
+            }
+        )
+    })
+
+</script>
+</body>
+</html>
