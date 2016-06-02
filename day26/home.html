@@ -37,22 +37,44 @@
     }
 
     var randomLeftPosition = getRandomInt(0, 240);
+    var randomTopPosition = getRandomInt(0, 300);
 
     $('#eggs').on('click', function() {
-        $('#rain-container').html('<div class="rain-image"></div>').animation();
+        $('#rain-container')
+            .html('<div class="eggrain"></div>')
+            .find('.eggrain')
+            .css('left', 30)
+            .css('top', 10)
+            .animate({top: 300}, 'slow', 'linear')
+        ;
+        // for (var i = 0; i < 5; i++) {
+        //     var eggRain = $('<div class="eggrain"></div>');
+        //                     // .css('left', randomLeftPosition)
+        //                     // .css('top', randomTopPosition)
+        //                     // .animate({top: 300}, 'slow', 'linear')
+        // }
     })
 
-    $('#bacon').on('click', function() {
-
-    })
-
-    $('#milk').on('click', function() {
-
-    })
-
-    $('#bread').on('click', function() {
-
-    })
+    // $('#eggs').on('click', function() {
+    //     $('#rain-container')
+    //         .html('<div class="rain-image"></div>')
+    //         .find('.rain-image')
+    //         .attr('top', randomTopPosition)
+    //         .attr('left', randomLeftPosition)
+    //         .animate({top: 260}, 1000, 'linear');
+    // })
+    //
+    // $('#bacon').on('click', function() {
+    //
+    // })
+    //
+    // $('#milk').on('click', function() {
+    //
+    // })
+    //
+    // $('#bread').on('click', function() {
+    //
+    // })
 
 </script>
 </body>
