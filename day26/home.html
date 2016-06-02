@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Titillium+Web|Fira+Sans|Catamaran' rel='stylesheet' type='text/css'>
 
-    <title>Raining stuff</title>
+    <title>Raining breakfast products</title>
 </head>
 <body>
     <div id="header-container">
@@ -15,9 +15,45 @@
         <div>|</div>
         <div><a href="https://github.com/katrinegitz" target="_blank">github</a></div>
     </div>
-    <h1>Raining stuff!</h1>
+    <h1>Raining breakfast products!</h1>
     <div id="container">
-        <p>Click one of the buttons to make the cloud rain.</p>
+        <div id="button-container">
+            <button id="eggs">EGGS</button>
+            <button id="bacon">BACON</button>
+            <button id="milk">MILK</button>
+            <button id="bread">BREAD</button>
+        </div>
+        <div id="cloud-container">
+            <div id="cloud"></div>
+        </div>
+        <div id="rain-container">
+            <!-- RAINING BREAKFASTS -->
+        </div>
     </div>
+<script>
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    var randomLeftPosition = getRandomInt(0, 240);
+
+    $('#eggs').on('click', function() {
+        $('#rain-container').html('<div class="rain-image"></div>').animation();
+    })
+
+    $('#bacon').on('click', function() {
+
+    })
+
+    $('#milk').on('click', function() {
+
+    })
+
+    $('#bread').on('click', function() {
+
+    })
+
+</script>
 </body>
 </html>

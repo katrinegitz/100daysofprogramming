@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     margin: 0 0 0 0;
     font-family: 'Droid Sans', sans-serif;
-    /*background-color: 000000;*/
+    background-color: #33b4ae;
 }
 #header-container {
     display: flex;
@@ -30,7 +30,7 @@ a {
 h1 {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 #container {
     width: 100%;
@@ -39,4 +39,30 @@ h1 {
     flex-direction: column;
     /*justify-content: center;*/
     align-items: center;
+}
+#button-container {
+    margin-bottom: 30px;
+}
+button {
+    width: 150px;
+    height: 30px;
+    border: none;
+    background-color: white;
+}
+#cloud {
+    height: 165px;
+    width: 240px;
+    background-image: url("img/cloud.png");
+    background-repeat: no-repeat;
+    margin-top: -10px;
+}
+#rain-container {
+    background-color: yellow;
+    height: 300px;
+    width: 240px;
+}
+.rain-image {
+    width: 40px;
+    height: 40px;
+    background-color: red;
 }
